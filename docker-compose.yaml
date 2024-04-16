@@ -1,0 +1,73 @@
+version: "3.2"
+
+networks:
+  mainnet:
+  db:
+
+services:
+
+  db:
+    image: mysql:8.0.27
+    container_name: db
+    environment:
+      MYSQL_ROOT_PASSWORD: "root"
+      MYSQL_DATABASE: "iot"
+      MYSQL_USER: "user"
+      MYSQL_PASSWORD: "user"
+    volumes:
+      - type: bind
+        source: "./sql/data"
+        target: /var/lib/mysql
+      - type: bind
+        source: "./sql/db.cnf"
+        target: /etc/mysql/conf.d/custom.cnf
+      - type: bind
+        source: "./sql/initdb.d"
+        target: /docker-entrypoint-initdb.d
+    ports:
+      - "3306:3306"
+    cap_add: # mbind: Operation not permitted (Trata prioridade de Thread)
+      - SYS_NICE  # CAP_SYS_NICE
+    networks:
+      - db
+
+  core:
+    build:
+        context: ./backend/
+        dockerfile: Dockerfile
+        args:
+          DOTNET_CONFIGURATION: Debug
+    container_name: core
+    environment:
+      - ASPNETCORE_ENVIRONMENT= Development
+      - ASPNETCORE_URLS=http://+:5001
+    ports:
+      - "5001:5001"
+    volumes:
+      - type: bind
+        source: "./backend/Core/appsettings.json"
+        target: /App/appsettings.json
+      - type: bind
+        source: "./backend/Core/Logs"
+        target: /App/Logs
+      - type: bind
+        source: "./backend/Core/Tmp"
+        target: /tmp
+    depends_on:
+      - db
+    networks:
+      - db
+      - mainnet
+
+  frontend:
+    build: ./frontend
+    container_name: frontend
+    ports: 
+      - '3000:3000'
+    stdin_open: true
+    tty: true
+    depends_on:
+      - core
+    networks:
+      - db
+      - mainnet

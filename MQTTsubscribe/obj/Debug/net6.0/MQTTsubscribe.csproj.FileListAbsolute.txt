@@ -1,0 +1,17 @@
+C:\Users\erika\OneDrive\Área de Trabalho\Git\giotgrad03\MQTTsubscribe\obj\Debug\net6.0\MQTTsubscribe.csproj.AssemblyReference.cache
+C:\Users\erika\OneDrive\Área de Trabalho\Git\giotgrad03\MQTTsubscribe\obj\Debug\net6.0\MQTTsubscribe.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\erika\OneDrive\Área de Trabalho\Git\giotgrad03\MQTTsubscribe\obj\Debug\net6.0\MQTTsubscribe.AssemblyInfoInputs.cache
+C:\Users\erika\OneDrive\Área de Trabalho\Git\giotgrad03\MQTTsubscribe\obj\Debug\net6.0\MQTTsubscribe.AssemblyInfo.cs
+C:\Users\erika\OneDrive\Área de Trabalho\Git\giotgrad03\MQTTsubscribe\obj\Debug\net6.0\MQTTsubscribe.csproj.CoreCompileInputs.cache
+C:\Users\erika\OneDrive\Área de Trabalho\Git\giotgrad03\MQTTsubscribe\bin\Debug\net6.0\MQTTsubscribe.exe
+C:\Users\erika\OneDrive\Área de Trabalho\Git\giotgrad03\MQTTsubscribe\bin\Debug\net6.0\MQTTsubscribe.deps.json
+C:\Users\erika\OneDrive\Área de Trabalho\Git\giotgrad03\MQTTsubscribe\bin\Debug\net6.0\MQTTsubscribe.runtimeconfig.json
+C:\Users\erika\OneDrive\Área de Trabalho\Git\giotgrad03\MQTTsubscribe\bin\Debug\net6.0\MQTTsubscribe.dll
+C:\Users\erika\OneDrive\Área de Trabalho\Git\giotgrad03\MQTTsubscribe\bin\Debug\net6.0\MQTTsubscribe.pdb
+C:\Users\erika\OneDrive\Área de Trabalho\Git\giotgrad03\MQTTsubscribe\bin\Debug\net6.0\MQTTnet.dll
+C:\Users\erika\OneDrive\Área de Trabalho\Git\giotgrad03\MQTTsubscribe\obj\Debug\net6.0\MQTTsubscribe.csproj.CopyComplete
+C:\Users\erika\OneDrive\Área de Trabalho\Git\giotgrad03\MQTTsubscribe\obj\Debug\net6.0\MQTTsubscribe.dll
+C:\Users\erika\OneDrive\Área de Trabalho\Git\giotgrad03\MQTTsubscribe\obj\Debug\net6.0\refint\MQTTsubscribe.dll
+C:\Users\erika\OneDrive\Área de Trabalho\Git\giotgrad03\MQTTsubscribe\obj\Debug\net6.0\MQTTsubscribe.pdb
+C:\Users\erika\OneDrive\Área de Trabalho\Git\giotgrad03\MQTTsubscribe\obj\Debug\net6.0\MQTTsubscribe.genruntimeconfig.cache
+C:\Users\erika\OneDrive\Área de Trabalho\Git\giotgrad03\MQTTsubscribe\obj\Debug\net6.0\ref\MQTTsubscribe.dll

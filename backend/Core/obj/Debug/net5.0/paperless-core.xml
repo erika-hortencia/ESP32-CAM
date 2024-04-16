@@ -1,0 +1,707 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>paperless-core</name>
+    </assembly>
+    <members>
+        <member name="T:Paperless.Common.ApiErrorCode">
+            <summary>
+            Internal error codes used to describe a given problem.
+            </summary>
+        </member>
+        <member name="T:Paperless.Common.ApiError">
+            <summary>
+            A map of internal problems, description and final http response code.
+            </summary>
+        </member>
+        <member name="F:Paperless.Common.ApiError._errorList">
+            <summary>
+            Maps internal errors to http response codes.
+            </summary>
+        </member>
+        <member name="P:Paperless.Common.ApiError.code">
+            <summary>
+            Internal API error code.
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Paperless.Common.ApiError.status">
+            <summary>
+            Http status code.
+            </summary>
+        </member>
+        <member name="P:Paperless.Common.ApiError.message">
+            <summary>
+            Message returned into response body.
+            </summary>
+        </member>
+        <member name="M:Paperless.Common.ApiError.#ctor(Paperless.Common.ApiErrorCode,System.Int32,System.String)">
+            <summary>
+            Default class constructor.
+            </summary>
+            <param name="errorCode"></param>
+            <param name="statusCode"></param>
+            <param name="message"></param>
+        </member>
+        <member name="M:Paperless.Common.ApiError.#ctor(Paperless.Common.ApiErrorCode)">
+            <summary>
+            Constructor from internal error code.
+            </summary>
+            <param name="errorCode"></param>
+        </member>
+        <member name="T:Paperless.Common.ExceptionExtensions">
+            <summary>
+            Helper class to get inner original exception trace.
+            </summary>
+        </member>
+        <member name="T:Paperless.Common.TokenService">
+            <summary>
+            Provides a mechanism to generate a JWT bearer token.
+            </summary>
+        </member>
+        <member name="M:Paperless.Common.TokenService.GenerateToken(Paperless.Data.User,System.Collections.Generic.List{System.String})">
+            <summary>
+            Generates a token using the internal secret and user data.
+            </summary>
+            <param name="user">The user that will bear the token.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Paperless.Common.Validators.ParseDateTime(System.String,System.String,System.DateTime@,System.String@)">
+            <summary>
+            Parses a date string using a specific format.
+            </summary>
+            <param name="sDateTime">Date string</param>
+            <param name="format">Format using DateTime.Parse syntax</param>
+            <param name="dateTime">parse date time result</param>
+            <param name="sError">A error description</param>
+            <returns></returns>
+        </member>
+        <member name="M:Paperless.Common.Validators.ValidateDateIntervalDays(System.DateTime,System.DateTime,System.Int32,System.String@)">
+            <summary>
+            Validate interval days.
+            </summary>
+            <param name="start">Begin date</param>
+            <param name="end">End date</param>
+            <param name="maxDaysInterval">Maximum interval in days</param>
+        </member>
+        <member name="M:Paperless.Common.Validators.ValidateSequenceType(System.String,System.String@)">
+            <summary>
+            Validate sequence type, being valid only 'bumper' and 'deflector'.
+            </summary>
+            <param name="type">sequence type</param>
+        </member>
+        <member name="T:Paperless.Controllers.AuthenticationController">
+            <summary>
+            The API authentication endpoint.
+            </summary>
+        </member>
+        <member name="M:Paperless.Controllers.AuthenticationController.#ctor(Microsoft.Extensions.Configuration.IConfiguration,Microsoft.Extensions.Logging.ILogger{Paperless.Controllers.AuthenticationController},AutoMapper.IMapper)">
+            <summary>
+            Default class constructor
+            </summary>
+            <param name="logger">Logger instance</param>
+        </member>
+        <member name="M:Paperless.Controllers.AuthenticationController.Login(System.String)">
+            <summary>
+            User authentication method.
+            </summary>
+            <remarks>
+            The method returns a valid  JWT token containing valid
+            access credentials to call protected API methods. Currently, the token has an expiration time 
+            of two hours.
+            </remarks>
+            <response code="200">Authentication success</response>
+            <response code="400">Missing login or password or malformed data</response>
+            <response code="401">User credentials are not valid</response>
+            <response code="422">An exception on the backend database was detected</response>
+        </member>
+        <member name="T:Paperless.Controllers.BatchController">
+            <summary>
+            The API Picking endpoint.
+            </summary>
+        </member>
+        <member name="M:Paperless.Controllers.BatchController.#ctor(Microsoft.Extensions.Configuration.IConfiguration,Microsoft.Extensions.Logging.ILogger{Paperless.Controllers.AuthenticationController},AutoMapper.IMapper)">
+            <summary>
+            Default class constructor
+            </summary>
+            <param name="logger">Logger instance</param>
+        </member>
+        <member name="M:Paperless.Controllers.BatchController.GetBatchs(Paperless.Dto.BatchDtoFilters,Paperless.Dto.PaginationDto)">
+            <summary>
+            Get all Batchs
+            </summary>
+            <response code="200">Batchs successfully got</response>
+            <response code="422">An exception on the backend database was detected</response>
+        </member>
+        <member name="M:Paperless.Controllers.BatchController.GetBatchById(System.Int32)">
+            <summary>
+            Get an specific batch by id
+            </summary>
+            <response code="200">Batchs successfully got</response>
+            <response code="404">Batch not found</response>
+            <response code="422">An exception on the backend database was detected</response>
+        </member>
+        <member name="M:Paperless.Controllers.BatchController.CreateBatch(Paperless.Dto.BatchDto)">
+            <summary>
+            Create new Batch
+            </summary>
+            <response code="200">Batch successfully created</response>
+            <response code="422">An exception on the backend database was detected</response>
+        </member>
+        <member name="T:Paperless.Controllers.LogController">
+            <summary>
+            The API audit endpoint.
+            </summary>
+        </member>
+        <member name="M:Paperless.Controllers.LogController.#ctor(Microsoft.Extensions.Configuration.IConfiguration,Microsoft.Extensions.Logging.ILogger{Paperless.Controllers.AuthenticationController},AutoMapper.IMapper)">
+            <summary>
+            Default class constructor
+            </summary>
+            <param name="logger">Logger instance</param>
+        </member>
+        <member name="M:Paperless.Controllers.LogController.GetAuditLogs(Paperless.Dto.PaginationDto,Paperless.Dto.AuditDtoFilters)">
+            <summary>
+            Get the audit logs.
+            </summary>
+            <remarks>
+            The method returns a list of all audit logs.
+            </remarks>
+            <response code="200">Audit Logs successfully got</response>
+            <response code="400">Pagination parameters missed or invalids or filters parameters invalids </response>
+            <response code="422">An exception on the backend database was detected</response>
+        </member>
+        <member name="M:Paperless.Controllers.LogController.DownloadFile(System.Int32)">
+            <summary>
+            Download audit logs file
+            </summary>
+            <remarks>
+            The method returns the file that is at the path passed to the endpoint.
+            </remarks>
+            <response code="200">File successfully downloaded</response>
+            <response code="404">File not found or Log not Found</response>
+        </member>
+        <member name="T:Paperless.Controllers.PaperlessControllerBase">
+            <summary>
+            Provides common ground for all service controllers.
+            </summary>
+        </member>
+        <member name="F:Paperless.Controllers.PaperlessControllerBase._logger">
+            <summary>
+            Logger instance for debug tracing.
+            </summary>       
+        </member>
+        <member name="F:Paperless.Controllers.PaperlessControllerBase._configuration">
+            <summary>
+            Configuration vault.
+            </summary>
+        </member>
+        <member name="F:Paperless.Controllers.PaperlessControllerBase._mapper">
+            <summary>
+            Dto mapper service.
+            </summary>
+        </member>
+        <member name="M:Paperless.Controllers.PaperlessControllerBase.#ctor(Microsoft.Extensions.Configuration.IConfiguration,Microsoft.Extensions.Logging.ILogger{Paperless.Controllers.PaperlessControllerBase},AutoMapper.IMapper)">
+            <summary>
+            Default class contructor. Receives internal services endpoints.
+            </summary>
+            <param name="configuration">Configuration instance from Startup. see AddSingleton help.</param>
+            <param name="logger">Default logger instance.</param>
+            <param name="mapper">Dto mapper resource.</param>        
+        </member>
+        <member name="M:Paperless.Controllers.PaperlessControllerBase.GetDbConnectionString">
+            <summary>
+            Retrieves database connection string from configuration.
+            </summary>
+            <returns>A database connection string.</returns>
+        </member>
+        <member name="M:Paperless.Controllers.PaperlessControllerBase.GetDbContext">
+            <summary>
+            Get the default application DB context.
+            </summary>
+            <returns>DB context instance.</returns>
+        </member>
+        <member name="M:Paperless.Controllers.PaperlessControllerBase.UserLoginFromContext">
+            <summary>
+            Extracts login from http context.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Paperless.Controllers.PickingController">
+            <summary>
+            The API Picking endpoint.
+            </summary>
+        </member>
+        <member name="M:Paperless.Controllers.PickingController.#ctor(Microsoft.Extensions.Configuration.IConfiguration,Microsoft.Extensions.Logging.ILogger{Paperless.Controllers.AuthenticationController},AutoMapper.IMapper)">
+            <summary>
+            Default class constructor
+            </summary>
+            <param name="logger">Logger instance</param>
+        </member>
+        <member name="M:Paperless.Controllers.PickingController.GetNextPicking">
+            <summary>
+            Get the next picking.
+            </summary>
+            <response code="200">Next Picking successfully got</response>
+            <response code="404">Picking not found</response>
+            <response code="422">An exception on the backend database was detected</response>
+        </member>
+        <member name="T:Paperless.Controllers.ProductController">
+            <summary>
+            The API Picking endpoint.
+            </summary>
+        </member>
+        <member name="M:Paperless.Controllers.ProductController.#ctor(Microsoft.Extensions.Configuration.IConfiguration,Microsoft.Extensions.Logging.ILogger{Paperless.Controllers.AuthenticationController},AutoMapper.IMapper)">
+            <summary>
+            Default class constructor
+            </summary>
+            <param name="logger">Logger instance</param>
+        </member>
+        <member name="M:Paperless.Controllers.ProductController.GetProducts(Paperless.Dto.ProductDtoFilters,Paperless.Dto.PaginationDto)">
+            <summary>
+            Get all products
+            </summary>
+            <response code="200">Products successfully got</response>
+            <response code="422">An exception on the backend database was detected</response>
+        </member>
+        <member name="M:Paperless.Controllers.ProductController.MakeProductSerial(System.Int32,Paperless.Dto.SerialMakeDto)">
+            <summary>
+            Create tags
+            </summary>
+            <response code="200">Tags successfully created</response>
+            <response code="400">Invalidy Body</response>
+            <response code="404">Invalid Batch_id or invalid Product_id</response>
+            <response code="422">An exception on the backend database was detected</response>
+        </member>
+        <member name="T:Paperless.Controllers.UserController">
+            <summary>
+            The API user endpoint.
+            </summary>
+        </member>
+        <member name="M:Paperless.Controllers.UserController.#ctor(Microsoft.Extensions.Configuration.IConfiguration,Microsoft.Extensions.Logging.ILogger{Paperless.Controllers.AuthenticationController},AutoMapper.IMapper)">
+            <summary>
+            Default class constructor
+            </summary>
+            <param name="logger">Logger instance</param>
+        </member>
+        <member name="M:Paperless.Controllers.UserController.getUserById(System.Int32)">
+            <summary>
+            Get an user by id.
+            </summary>
+            <remarks>
+            The method returns an user that has the given id
+            </remarks>
+            <response code="200">User successfully got</response>
+            <response code="400">Missing id</response>
+            <response code="404">User not found</response>
+            <response code="422">An exception on the backend database was detected</response>
+        </member>
+        <member name="M:Paperless.Controllers.UserController.updateUserById(System.Int32,Paperless.Data.User)">
+            <summary>
+            Update an user by id.
+            </summary>
+            <remarks>
+            The method returns a string to indicate if the user is sucessfully updated
+            </remarks>
+            <response code="200">User successfully got</response>
+            <response code="400">Missing id</response>
+            <response code="404">User not found</response>
+            <response code="422">An exception on the backend database was detected</response>
+        </member>
+        <member name="M:Paperless.Controllers.UserController.CreateUser(Paperless.Dto.UserDto)">
+            <summary>
+            Create a new user.
+            </summary>
+            <remarks>
+            The method returns a string just to indicate that the user is created or not
+            </remarks>
+            <response code="200">User successfully created</response>
+            <response code="400">Missing login or name or email or email is not unique or login is not unique</response>
+            <response code="422">An exception on the backend database was detected</response>
+        </member>
+        <member name="M:Paperless.Controllers.UserController.ChangePassword(System.String,System.String)">
+            <summary>
+            Change the password of the user who has the token.
+            </summary>
+            <remarks>
+            The method returns a string just to indicate that the password is change successfully or not
+            </remarks>
+            <response code="200">Password successfully changed</response>
+            <response code="400">Missing Token or newPassword</response>
+            <response code="404">User with that token not Found</response>
+            <response code="422">An exception on the backend database was detected</response>
+        </member>
+        <member name="M:Paperless.Controllers.UserController.RecoverPassword(System.String)">
+            <summary>
+            Sent a email to Recover the password of the user.
+            </summary>
+            <remarks>
+            The method returns a string just to indicate that the email is sent successfully or not
+            </remarks>
+            <response code="200">Password successfully changed</response>
+            <response code="400">Missing email or an exception on the email service was detected</response>
+            <response code="404">User with that email not Found</response>
+            <response code="422">An exception on the backend database was detected</response>
+        </member>
+        <member name="M:Paperless.Controllers.UserController.GetAllUsers(Paperless.Dto.PaginationDto,Paperless.Dto.UserDtoFilters)">
+            <summary>
+            Get all users infos.
+            </summary>
+            <remarks>
+            The method returns a List with all users infos
+            </remarks>
+            <response code="200">Users successfully got</response>
+            <response code="403">User does not have permission to call this endpoint</response>
+            <response code="422">An exception on the backend database was detected</response>
+        </member>
+        <member name="M:Paperless.Controllers.UserController.ChangeProfile(System.String,System.Int32)">
+            <summary>
+            Change the profile of an user.
+            </summary>
+            <remarks>
+            The method returns a string just to indicate that the profile is correctly changed or not
+            </remarks>
+            <response code="200">Profile successfully changed</response>
+            <response code="400">Id mal formatado ou nulo</response>
+            <response code="403">User does not have permission to call this endpoint</response>
+            <response code="404">User or Profile Not Found</response>
+            <response code="422">An exception on the backend database was detected</response>
+        </member>
+        <member name="M:Paperless.Controllers.UserController.getUserQRCode(System.Int32)">
+            <summary>
+            Get the intern login qrcode of the user.
+            </summary>
+            <remarks>
+            The method returns a fil that is the png of the login qrcode of the requested user
+            </remarks>
+            <response code="200">Profile successfully changed</response>
+            <response code="400">id mal formatado ou nulo</response>
+            <response code="403">User does not have permission to call this endpoint</response>
+            <response code="404">User with that id not found</response>
+            <response code="422">An exception on the backend database was detected</response>
+        </member>
+        <member name="M:Paperless.Controllers.UserController.ChangeActive(System.Int32)">
+            <summary>
+            Change the active status of the given user
+            </summary>
+            <remarks>
+            The method returns a string just to indicate that the active is status is correctly changed or not
+            </remarks>
+            <response code="200">Active Status successfully changed</response>
+            <response code="403">User does not have permission to call this endpoint</response>
+            <response code="404">User Not Found</response>
+            <response code="422">An exception on the backend database was detected</response>
+        </member>
+        <member name="T:Paperless.Controllers.UtilsController">
+            <summary>
+            The API audit endpoint.
+            </summary>
+        </member>
+        <member name="M:Paperless.Controllers.UtilsController.#ctor(Microsoft.Extensions.Configuration.IConfiguration,Microsoft.Extensions.Logging.ILogger{Paperless.Controllers.AuthenticationController},AutoMapper.IMapper)">
+            <summary>
+            Default class constructor
+            </summary>
+            <param name="logger">Logger instance</param>
+        </member>
+        <member name="M:Paperless.Controllers.UtilsController.Encrypt(System.String)">
+            <summary>
+            Encrypt a text using the public key of the api
+            </summary>
+            <remarks>
+            The method returns a string that is the original string encrypted with RS using the public key of the API
+            </remarks>
+        </member>
+        <member name="M:Paperless.Controllers.UtilsController.GetPublicKey">
+            <summary>
+            Return the public key of the api
+            </summary>
+            <remarks>
+            The method returns the public key of the API
+            </remarks>
+        </member>
+        <member name="T:Paperless.Data.Address">
+            <summary>
+            Maps relational table 'address'.
+            </summary>
+        </member>
+        <member name="T:Paperless.Data.Batch">
+            <summary>
+            Maps relational table 'batch'.
+            </summary>
+        </member>
+        <member name="T:Paperless.Data.City">
+            <summary>
+            Maps relational table 'city'.
+            </summary>
+        </member>
+        <member name="T:Paperless.Data.Configuration">
+            <summary>
+            Maps relational table 'configurations'.
+            </summary>
+        </member>
+        <member name="T:Paperless.Data.Courier">
+            <summary>
+            Maps relational table 'courier'.
+            </summary>
+        </member>
+        <member name="T:Paperless.Data.Customer">
+            <summary>
+            Maps relational table 'customer'.
+            </summary>
+        </member>
+        <member name="T:Paperless.Data.Log">
+            <summary>
+            Maps relational table 'Logs'.
+            </summary>
+        </member>
+        <member name="T:Paperless.Data.Metrics">
+            <summary>
+            Maps relational table 'metrics'.
+            </summary>
+        </member>
+        <member name="T:Paperless.Data.PaperlessDbContext">
+            <summary>
+            Database entity model map. 
+            </summary>
+        </member>
+        <member name="M:Paperless.Data.PaperlessDbContext.#ctor(System.String)">
+            <summary>
+            Default class constructor
+            </summary>
+            <param name="connectionString">Database connection parameters</param>
+        </member>
+        <member name="M:Paperless.Data.PaperlessDbContext.OnModelCreating(System.Data.Entity.DbModelBuilder)">
+            <summary>
+            Build indirect relationships.
+            </summary>
+            <param name="modelBuilder"></param>
+        </member>
+        <member name="P:Paperless.Data.PaperlessDbContext.Profiles">
+            <summary>
+            Application Profile's data set.
+            </summary>
+        </member>
+        <member name="P:Paperless.Data.PaperlessDbContext.Users">
+            <summary>
+            Application User's data set.
+            </summary>
+        </member>
+        <member name="P:Paperless.Data.PaperlessDbContext.Address">
+            <summary>
+            Application Address's data set.
+            </summary>
+        </member>
+        <member name="P:Paperless.Data.PaperlessDbContext.Products">
+            <summary>
+            Application Products's data set.
+            </summary>
+        </member>
+        <member name="P:Paperless.Data.PaperlessDbContext.Permissions">
+            <summary>
+            Application Permissions's data set.
+            </summary>
+        </member>
+        <member name="P:Paperless.Data.PaperlessDbContext.Cities">
+            <summary>
+            Application City's data set.
+            </summary>
+        </member>
+        <member name="P:Paperless.Data.PaperlessDbContext.Couriers">
+            <summary>
+            Application Courier's data set.
+            </summary>
+        </member>
+        <member name="P:Paperless.Data.PaperlessDbContext.Customers">
+            <summary>
+            Application Customer's data set.
+            </summary>
+        </member>
+        <member name="P:Paperless.Data.PaperlessDbContext.Priorities">
+            <summary>
+            Application Priority's data set.
+            </summary>
+        </member>
+        <member name="P:Paperless.Data.PaperlessDbContext.Provinces">
+            <summary>
+            Application Province's data set.
+            </summary>
+        </member>
+        <member name="P:Paperless.Data.PaperlessDbContext.Pickings">
+            <summary>
+            Application Picking's data set.
+            </summary>
+        </member>
+        <member name="P:Paperless.Data.PaperlessDbContext.Logs">
+            <summary>
+            Application Log's data set.
+            </summary>
+        </member>
+        <member name="P:Paperless.Data.PaperlessDbContext.Batches">
+            <summary>
+            Application Batches' data set.
+            </summary>
+        </member>
+        <member name="P:Paperless.Data.PaperlessDbContext.Rules">
+            <summary>
+            Application Rule's data set.
+            </summary>
+        </member>
+        <member name="P:Paperless.Data.PaperlessDbContext.Serials">
+            <summary>
+            Application Serial's data set.
+            </summary>
+        </member>
+        <member name="P:Paperless.Data.PaperlessDbContext.Configurations">
+            <summary>
+            Application Configuration's data set.
+            </summary>
+        </member>
+        <member name="P:Paperless.Data.PaperlessDbContext.PickingLists">
+            <summary>
+            Application Picking List's data set.
+            </summary>
+        </member>
+        <member name="T:Paperless.Data.Permission">
+            <summary>
+            Maps relational table 'permission'.
+            </summary>
+        </member>
+        <member name="T:Paperless.Data.Picking">
+            <summary>
+            Maps relational table 'picking'.
+            </summary>
+        </member>
+        <member name="T:Paperless.Data.PickingStatusClass">
+            <sumary>
+             Possible picking statuses
+            </sumary>
+        </member>
+        <member name="T:Paperless.Data.PickingList">
+            <summary>
+            Maps relational table 'picking list'. Used for many-to-many relationship between
+            'product' and 'picking' tables.
+            </summary>
+        </member>
+        <member name="T:Paperless.Data.Priority">
+            <summary>
+            Maps relational table 'priority'.
+            </summary>
+        </member>
+        <member name="T:Paperless.Data.Product">
+            <summary>
+            Maps relational table 'product'.
+            </summary>
+        </member>
+        <member name="T:Paperless.Data.Profile">
+            <summary>
+            Maps relational table 'profile'.
+            </summary>
+        </member>
+        <member name="T:Paperless.Data.Province">
+            <summary>
+            Maps relational table 'province'.
+            </summary>
+        </member>
+        <member name="T:Paperless.Data.Rule">
+            <summary>
+            Maps relational table 'rule'. Used for many-to-many relationship between
+            'permission' and 'profile' tables.
+            </summary>
+        </member>
+        <member name="T:Paperless.Data.Serial">
+            <summary>
+            Maps relational table 'picking list'. Used for many-to-many relationship between
+            'product' and 'picking' tables.
+            </summary>
+        </member>
+        <member name="T:Paperless.Data.User">
+            <summary>
+            Maps relational table 'user'.
+            </summary>
+        </member>
+        <member name="T:Paperless.Dto.BatchDto">
+            <summary>
+            Batch Data.
+            </summary>
+        </member>
+        <member name="T:Paperless.Dto.ConfigurationDto">
+            <summary>
+            Configuration Data.
+            </summary>
+        </member>
+        <member name="T:Paperless.Dto.DeliverDto">
+            <summary>
+            Deliver Data.
+            </summary>
+        </member>
+        <member name="T:Paperless.Dto.RemessaDto">
+            <summary>
+            Remessa Data.
+            </summary>
+        </member>
+        <member name="T:Paperless.Dto.LoginDto">
+            <summary>
+            Authentication user data.
+            </summary>
+        </member>
+        <member name="T:Paperless.Dto.LoginResponseDto">
+            <summary>
+            Authentication response on login.
+            </summary>
+        </member>
+        <member name="P:Paperless.Dto.LoginResponseDto.login">
+            <summary>
+            Login identifier.
+            </summary>
+        </member>
+        <member name="P:Paperless.Dto.LoginResponseDto.token">
+            <summary>
+            The JWT token bearer to be used in protected API calls.
+            </summary>
+        </member>
+        <member name="T:Paperless.Dto.PaginationDto">
+            <summary>
+            Authentication user data.
+            </summary>
+        </member>
+        <member name="T:Paperless.Dto.PickingListDto">
+            <summary>
+            Picking List main data.
+            </summary>
+        </member>
+        <member name="T:Paperless.Dto.ProductDto">
+            <summary>
+            Product Data.
+            </summary>
+        </member>
+        <member name="T:Paperless.Dto.ProfileDto">
+            <summary>
+            Profile main Data.
+            </summary>
+        </member>
+        <member name="T:Paperless.Dto.RuleDto">
+            <summary>
+            Rule main data.
+            </summary>
+        </member>
+        <member name="T:Paperless.Dto.UserDto">
+            <summary>
+            User data.
+            </summary>
+        </member>
+        <member name="T:Paperless.Dto.UserResponseDto">
+            <summary>
+            User response data.
+            </summary>
+        </member>
+        <member name="T:Paperless.Dto.UserChangePassword">
+            <summary>
+            User change password data.
+            </summary>
+        </member>
+        <member name="T:Paperless.Dto.UserMainInfos">
+            <summary>
+            User main infos.
+            </summary>
+        </member>
+    </members>
+</doc>

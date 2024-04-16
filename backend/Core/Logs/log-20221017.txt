@@ -1,0 +1,234 @@
+2022-10-17 14:58:14.144 -03:00 [FTL] Unable to start Kestrel.
+System.IO.IOException: Failed to bind to address http://127.0.0.1:5000: address already in use.
+ ---> Microsoft.AspNetCore.Connections.AddressInUseException: Address already in use
+ ---> System.Net.Sockets.SocketException (98): Address already in use
+   at System.Net.Sockets.Socket.UpdateStatusAfterSocketErrorAndThrowException(SocketError error, String callerName)
+   at System.Net.Sockets.Socket.DoBind(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   at System.Net.Sockets.Socket.Bind(EndPoint localEP)
+   at Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.SocketConnectionListener.<Bind>g__BindSocket|13_0(<>c__DisplayClass13_0& )
+   --- End of inner exception stack trace ---
+   at Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.SocketConnectionListener.<Bind>g__BindSocket|13_0(<>c__DisplayClass13_0& )
+   at Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.SocketConnectionListener.Bind()
+   at Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.SocketTransportFactory.BindAsync(EndPoint endpoint, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Infrastructure.TransportManager.BindAsync(EndPoint endPoint, ConnectionDelegate connectionDelegate, EndpointConfig endpointConfig)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerImpl.<>c__DisplayClass29_0`1.<<StartAsync>g__OnBind|0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.BindEndpointAsync(ListenOptions endpoint, AddressBindContext context)
+   --- End of inner exception stack trace ---
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.BindEndpointAsync(ListenOptions endpoint, AddressBindContext context)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.LocalhostListenOptions.BindAsync(AddressBindContext context)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.DefaultAddressStrategy.BindAsync(AddressBindContext context)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.BindAsync(IEnumerable`1 listenOptions, AddressBindContext context)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerImpl.BindAsync(CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerImpl.StartAsync[TContext](IHttpApplication`1 application, CancellationToken cancellationToken)
+2022-10-17 14:59:10.210 -03:00 [INF] Now listening on: http://localhost:5000
+2022-10-17 14:59:10.251 -03:00 [INF] Now listening on: https://localhost:5001
+2022-10-17 14:59:10.252 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-10-17 14:59:10.252 -03:00 [INF] Hosting environment: Production
+2022-10-17 14:59:10.252 -03:00 [INF] Content root path: /home/matezcp/iot/backend/Core
+2022-10-17 14:59:14.047 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/ - -
+2022-10-17 14:59:14.088 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/ - - - 404 0 - 44.2887ms
+2022-10-17 14:59:21.178 -03:00 [INF] Request starting HTTP/2 GET https://localhost:5001/ - -
+2022-10-17 14:59:21.183 -03:00 [INF] Request finished HTTP/2 GET https://localhost:5001/ - - - 404 0 - 4.3534ms
+2022-10-17 14:59:34.495 -03:00 [INF] Application is shutting down...
+2022-10-17 15:01:05.532 -03:00 [INF] Now listening on: http://localhost:5000
+2022-10-17 15:01:05.566 -03:00 [INF] Now listening on: https://localhost:5001
+2022-10-17 15:01:05.567 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-10-17 15:01:05.567 -03:00 [INF] Hosting environment: Production
+2022-10-17 15:01:05.567 -03:00 [INF] Content root path: /home/matezcp/iot/backend/Core
+2022-10-17 15:01:16.931 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger - -
+2022-10-17 15:01:16.966 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/swagger - - - 404 0 - 38.8630ms
+2022-10-17 15:01:20.577 -03:00 [INF] Application is shutting down...
+2022-10-17 15:02:44.846 -03:00 [INF] Now listening on: http://localhost:5000
+2022-10-17 15:02:44.880 -03:00 [INF] Now listening on: https://localhost:5001
+2022-10-17 15:02:44.881 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-10-17 15:02:44.881 -03:00 [INF] Hosting environment: Production
+2022-10-17 15:02:44.881 -03:00 [INF] Content root path: /home/matezcp/iot/backend/Core
+2022-10-17 15:02:47.913 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/ - -
+2022-10-17 15:02:47.949 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/ - - - 404 0 - 38.1397ms
+2022-10-17 15:02:56.849 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger - -
+2022-10-17 15:02:56.850 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/swagger - - - 404 0 - 1.5880ms
+2022-10-17 15:03:20.777 -03:00 [INF] Application is shutting down...
+2022-10-17 15:05:28.054 -03:00 [INF] Now listening on: http://localhost:5000
+2022-10-17 15:05:28.089 -03:00 [INF] Now listening on: https://localhost:5001
+2022-10-17 15:05:28.089 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-10-17 15:05:28.089 -03:00 [INF] Hosting environment: Production
+2022-10-17 15:05:28.089 -03:00 [INF] Content root path: /home/matezcp/iot/backend/Core
+2022-10-17 15:05:30.827 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/ - -
+2022-10-17 15:05:30.855 -03:00 [INF] /home/matezcp/iot/backend/Core/bin/Debug/net5.0/Core.xml
+2022-10-17 15:05:30.919 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/ - - - 404 0 - 95.8184ms
+2022-10-17 15:05:40.109 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger - -
+2022-10-17 15:05:40.111 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/swagger - - - 301 0 - 1.6700ms
+2022-10-17 15:05:40.116 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/index.html - -
+2022-10-17 15:05:40.202 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/swagger/index.html - - - 200 - text/html;charset=utf-8 86.0881ms
+2022-10-17 15:05:40.246 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/swagger-ui.css - -
+2022-10-17 15:05:40.265 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/swagger-ui-bundle.js - -
+2022-10-17 15:05:40.270 -03:00 [INF] Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A'
+2022-10-17 15:05:40.271 -03:00 [INF] Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A'
+2022-10-17 15:05:40.273 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/swagger/swagger-ui-bundle.js - - - 200 1092889 application/javascript 8.3870ms
+2022-10-17 15:05:40.274 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/swagger/swagger-ui.css - - - 200 143632 text/css 27.2154ms
+2022-10-17 15:05:40.275 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/swagger-ui-standalone-preset.js - -
+2022-10-17 15:05:40.280 -03:00 [INF] Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A'
+2022-10-17 15:05:40.281 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/swagger/swagger-ui-standalone-preset.js - - - 200 337162 application/javascript 6.4008ms
+2022-10-17 15:05:40.559 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/v1/swagger.json - -
+2022-10-17 15:05:40.589 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/favicon-32x32.png - -
+2022-10-17 15:05:40.590 -03:00 [INF] Sending file. Request path: '/favicon-32x32.png'. Physical path: 'N/A'
+2022-10-17 15:05:40.591 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/swagger/favicon-32x32.png - - - 200 628 image/png 2.6644ms
+2022-10-17 15:05:40.667 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 108.3312ms
+2022-10-17 15:05:52.933 -03:00 [INF] Application is shutting down...
+2022-10-17 18:19:00.891 +00:00 [INF] Now listening on: http://[::]:5001
+2022-10-17 18:19:00.935 +00:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-10-17 18:19:00.935 +00:00 [INF] Hosting environment:  Development
+2022-10-17 18:19:00.935 +00:00 [INF] Content root path: /App
+2022-10-17 18:20:47.303 +00:00 [INF] Application is shutting down...
+2022-10-17 18:23:17.429 +00:00 [INF] Now listening on: http://[::]:5001
+2022-10-17 18:23:17.478 +00:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-10-17 18:23:17.478 +00:00 [INF] Hosting environment:  Development
+2022-10-17 18:23:17.478 +00:00 [INF] Content root path: /App
+2022-10-17 18:24:43.647 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5001/swagger/index.html - -
+2022-10-17 18:24:43.677 +00:00 [INF] /App/Core.xml
+2022-10-17 18:24:43.765 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5001/swagger/index.html - - - 200 - text/html;charset=utf-8 121.2758ms
+2022-10-17 18:24:43.814 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5001/swagger/swagger-ui.css - -
+2022-10-17 18:24:43.823 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5001/swagger/swagger-ui-bundle.js - -
+2022-10-17 18:24:43.826 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5001/swagger/swagger-ui-standalone-preset.js - -
+2022-10-17 18:24:43.846 +00:00 [INF] Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A'
+2022-10-17 18:24:43.846 +00:00 [INF] Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A'
+2022-10-17 18:24:43.850 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5001/swagger/swagger-ui-standalone-preset.js - - - 200 337162 application/javascript 23.8864ms
+2022-10-17 18:24:43.850 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5001/swagger/swagger-ui.css - - - 200 143632 text/css 36.1036ms
+2022-10-17 18:24:43.852 +00:00 [INF] Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A'
+2022-10-17 18:24:43.853 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5001/swagger/swagger-ui-bundle.js - - - 200 1092889 application/javascript 29.4148ms
+2022-10-17 18:24:44.100 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5001/swagger/v1/swagger.json - -
+2022-10-17 18:24:44.133 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5001/swagger/favicon-32x32.png - -
+2022-10-17 18:24:44.133 +00:00 [INF] Sending file. Request path: '/favicon-32x32.png'. Physical path: 'N/A'
+2022-10-17 18:24:44.134 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5001/swagger/favicon-32x32.png - - - 200 628 image/png 0.7310ms
+2022-10-17 18:24:44.211 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5001/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 111.1939ms
+2022-10-17 18:24:47.199 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5001/Register - -
+2022-10-17 18:24:47.234 +00:00 [INF] Executing endpoint 'backend.Controllers.RegisterController.GetAllRegisters (Core)'
+2022-10-17 18:24:47.256 +00:00 [INF] Route matched with {action = "GetAllRegisters", controller = "Register"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.List`1[backend.Data.Register]] GetAllRegisters() on controller backend.Controllers.RegisterController (Core).
+2022-10-17 18:24:57.751 +00:00 [ERR] Resource temporarily unavailable
+2022-10-17 18:24:57.762 +00:00 [ERR]    at System.Net.Dns.GetHostEntryOrAddressesCore(String hostName, Boolean justAddresses)
+   at System.Net.Dns.<>c.<GetHostEntryOrAddressesCoreAsync>b__27_2(Object s)
+   at System.Threading.Tasks.Task`1.InnerInvoke()
+   at System.Threading.Tasks.Task.<>c.<.cctor>b__277_0(Object obj)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+2022-10-17 18:24:57.764 +00:00 [INF] Executing UnprocessableEntityObjectResult, writing value of type 'backend.Common.ApiError'.
+2022-10-17 18:24:57.787 +00:00 [INF] Executed action backend.Controllers.RegisterController.GetAllRegisters (Core) in 10524.9556ms
+2022-10-17 18:24:57.789 +00:00 [INF] Executed endpoint 'backend.Controllers.RegisterController.GetAllRegisters (Core)'
+2022-10-17 18:24:57.790 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5001/Register - - - 422 - application/json;+charset=utf-8 10590.3345ms
+2022-10-17 18:25:37.031 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5001/Register - -
+2022-10-17 18:25:37.032 +00:00 [INF] Executing endpoint 'backend.Controllers.RegisterController.GetAllRegisters (Core)'
+2022-10-17 18:25:37.033 +00:00 [INF] Route matched with {action = "GetAllRegisters", controller = "Register"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.List`1[backend.Data.Register]] GetAllRegisters() on controller backend.Controllers.RegisterController (Core).
+2022-10-17 18:25:47.050 +00:00 [ERR] Resource temporarily unavailable
+2022-10-17 18:25:47.051 +00:00 [ERR]    at System.Net.Dns.GetHostEntryOrAddressesCore(String hostName, Boolean justAddresses)
+   at System.Net.Dns.<>c.<GetHostEntryOrAddressesCoreAsync>b__27_2(Object s)
+   at System.Threading.Tasks.Task`1.InnerInvoke()
+   at System.Threading.Tasks.Task.<>c.<.cctor>b__277_0(Object obj)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+2022-10-17 18:25:47.053 +00:00 [INF] Executing UnprocessableEntityObjectResult, writing value of type 'backend.Common.ApiError'.
+2022-10-17 18:25:47.054 +00:00 [INF] Executed action backend.Controllers.RegisterController.GetAllRegisters (Core) in 10020.434ms
+2022-10-17 18:25:47.054 +00:00 [INF] Executed endpoint 'backend.Controllers.RegisterController.GetAllRegisters (Core)'
+2022-10-17 18:25:47.055 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5001/Register - - - 422 - application/json;+charset=utf-8 10023.8997ms
+2022-10-17 18:26:42.226 +00:00 [INF] Application is shutting down...
+2022-10-17 18:26:52.641 +00:00 [INF] Now listening on: http://[::]:5001
+2022-10-17 18:26:52.686 +00:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-10-17 18:26:52.687 +00:00 [INF] Hosting environment:  Development
+2022-10-17 18:26:52.687 +00:00 [INF] Content root path: /App
+2022-10-17 18:26:55.958 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5001/swagger/index.html - -
+2022-10-17 18:26:55.984 +00:00 [INF] /App/Core.xml
+2022-10-17 18:26:56.067 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5001/swagger/index.html - - - 200 - text/html;charset=utf-8 111.5123ms
+2022-10-17 18:26:56.327 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5001/swagger/v1/swagger.json - -
+2022-10-17 18:26:56.449 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5001/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 122.4603ms
+2022-10-17 18:27:01.759 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5001/Register - -
+2022-10-17 18:27:01.786 +00:00 [INF] Executing endpoint 'backend.Controllers.RegisterController.GetAllRegisters (Core)'
+2022-10-17 18:27:01.802 +00:00 [INF] Route matched with {action = "GetAllRegisters", controller = "Register"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.List`1[backend.Data.Register]] GetAllRegisters() on controller backend.Controllers.RegisterController (Core).
+2022-10-17 18:27:12.232 +00:00 [ERR] Resource temporarily unavailable
+2022-10-17 18:27:12.242 +00:00 [ERR]    at System.Net.Dns.GetHostEntryOrAddressesCore(String hostName, Boolean justAddresses)
+   at System.Net.Dns.<>c.<GetHostEntryOrAddressesCoreAsync>b__27_2(Object s)
+   at System.Threading.Tasks.Task`1.InnerInvoke()
+   at System.Threading.Tasks.Task.<>c.<.cctor>b__277_0(Object obj)
+   at System.Threading.ExecutionContext.RunFromThreadPoolDispatchLoop(Thread threadPoolThread, ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunFromThreadPoolDispatchLoop(Thread threadPoolThread, ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+2022-10-17 18:27:12.248 +00:00 [INF] Executing UnprocessableEntityObjectResult, writing value of type 'backend.Common.ApiError'.
+2022-10-17 18:27:12.270 +00:00 [INF] Executed action backend.Controllers.RegisterController.GetAllRegisters (Core) in 10462.9019ms
+2022-10-17 18:27:12.272 +00:00 [INF] Executed endpoint 'backend.Controllers.RegisterController.GetAllRegisters (Core)'
+2022-10-17 18:27:12.273 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5001/Register - - - 422 - application/json;+charset=utf-8 10514.2720ms
+2022-10-17 18:29:12.348 +00:00 [INF] Application is shutting down...
+2022-10-17 18:29:46.351 +00:00 [INF] Now listening on: http://[::]:5001
+2022-10-17 18:29:46.393 +00:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-10-17 18:29:46.393 +00:00 [INF] Hosting environment:  Development
+2022-10-17 18:29:46.393 +00:00 [INF] Content root path: /App
+2022-10-17 18:29:52.811 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5001/Register - -
+2022-10-17 18:29:52.841 +00:00 [INF] /App/Core.xml
+2022-10-17 18:29:52.892 +00:00 [INF] Executing endpoint 'backend.Controllers.RegisterController.GetAllRegisters (Core)'
+2022-10-17 18:29:52.918 +00:00 [INF] Route matched with {action = "GetAllRegisters", controller = "Register"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.List`1[backend.Data.Register]] GetAllRegisters() on controller backend.Controllers.RegisterController (Core).
+2022-10-17 18:30:03.391 +00:00 [ERR] Resource temporarily unavailable
+2022-10-17 18:30:03.406 +00:00 [ERR]    at System.Net.Dns.GetHostEntryOrAddressesCore(String hostName, Boolean justAddresses)
+   at System.Net.Dns.<>c.<GetHostEntryOrAddressesCoreAsync>b__27_2(Object s)
+   at System.Threading.Tasks.Task`1.InnerInvoke()
+   at System.Threading.Tasks.Task.<>c.<.cctor>b__277_0(Object obj)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+2022-10-17 18:30:03.414 +00:00 [INF] Executing UnprocessableEntityObjectResult, writing value of type 'backend.Common.ApiError'.
+2022-10-17 18:30:03.461 +00:00 [INF] Executed action backend.Controllers.RegisterController.GetAllRegisters (Core) in 10535.7095ms
+2022-10-17 18:30:03.465 +00:00 [INF] Executed endpoint 'backend.Controllers.RegisterController.GetAllRegisters (Core)'
+2022-10-17 18:30:03.467 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5001/Register - - - 422 - application/json;+charset=utf-8 10659.2186ms
+2022-10-17 18:31:42.669 +00:00 [INF] Application is shutting down...
+2022-10-17 18:49:20.556 +00:00 [INF] Now listening on: http://[::]:5001
+2022-10-17 18:49:20.607 +00:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-10-17 18:49:20.608 +00:00 [INF] Hosting environment:  Development
+2022-10-17 18:49:20.608 +00:00 [INF] Content root path: /App
+2022-10-17 18:50:05.981 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5001/ - -
+2022-10-17 18:50:06.046 +00:00 [INF] /App/Core.xml
+2022-10-17 18:50:06.094 +00:00 [INF] CORS policy execution successful.
+2022-10-17 18:50:06.100 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5001/ - - - 404 0 - 121.5450ms
+2022-10-17 19:17:54.903 +00:00 [INF] Application is shutting down...
+2022-10-17 19:21:53.801 +00:00 [INF] Now listening on: http://[::]:5001
+2022-10-17 19:21:53.844 +00:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-10-17 19:21:53.844 +00:00 [INF] Hosting environment:  Development
+2022-10-17 19:21:53.844 +00:00 [INF] Content root path: /App
+2022-10-17 19:22:20.817 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5001/ - -
+2022-10-17 19:22:20.910 +00:00 [INF] /App/Core.xml
+2022-10-17 19:22:20.982 +00:00 [INF] CORS policy execution successful.
+2022-10-17 19:22:20.991 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5001/ - - - 404 0 - 177.2884ms
+2022-10-17 19:22:25.809 +00:00 [INF] Application is shutting down...
+2022-10-17 19:25:41.153 +00:00 [INF] Now listening on: http://[::]:5001
+2022-10-17 19:25:41.203 +00:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-10-17 19:25:41.204 +00:00 [INF] Hosting environment:  Development
+2022-10-17 19:25:41.204 +00:00 [INF] Content root path: /App
+2022-10-17 19:26:22.630 +00:00 [INF] Application is shutting down...
+2022-10-17 22:45:50.830 +00:00 [INF] Now listening on: http://[::]:5001
+2022-10-17 22:45:50.907 +00:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-10-17 22:45:50.907 +00:00 [INF] Hosting environment:  Development
+2022-10-17 22:45:50.907 +00:00 [INF] Content root path: /App
+2022-10-17 22:46:00.557 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5001/swagger - -
+2022-10-17 22:46:00.752 +00:00 [INF] /App/Core.xml
+2022-10-17 22:46:00.770 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5001/swagger - - - 301 0 - 215.7583ms
+2022-10-17 22:46:00.783 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5001/swagger/index.html - -
+2022-10-17 22:46:00.839 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5001/swagger/index.html - - - 200 - text/html;charset=utf-8 56.0627ms
+2022-10-17 22:46:01.022 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5001/swagger/v1/swagger.json - -
+2022-10-17 22:46:01.150 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5001/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 127.8778ms
+2022-10-17 22:46:06.982 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5001/Register - -
+2022-10-17 22:46:07.003 +00:00 [INF] Executing endpoint 'backend.Controllers.RegisterController.GetAllRegisters (Core)'
+2022-10-17 22:46:07.017 +00:00 [INF] Route matched with {action = "GetAllRegisters", controller = "Register"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.List`1[backend.Data.Register]] GetAllRegisters() on controller backend.Controllers.RegisterController (Core).
+2022-10-17 22:46:17.466 +00:00 [ERR] Resource temporarily unavailable
+2022-10-17 22:46:17.495 +00:00 [ERR]    at System.Net.Dns.GetHostEntryOrAddressesCore(String hostName, Boolean justAddresses)
+   at System.Net.Dns.<>c.<GetHostEntryOrAddressesCoreAsync>b__27_2(Object s)
+   at System.Threading.Tasks.Task`1.InnerInvoke()
+   at System.Threading.Tasks.Task.<>c.<.cctor>b__277_0(Object obj)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+2022-10-17 22:46:17.499 +00:00 [INF] Executing UnprocessableEntityObjectResult, writing value of type 'backend.Common.ApiError'.
+2022-10-17 22:46:17.519 +00:00 [INF] Executed action backend.Controllers.RegisterController.GetAllRegisters (Core) in 10495.566ms
+2022-10-17 22:46:17.522 +00:00 [INF] Executed endpoint 'backend.Controllers.RegisterController.GetAllRegisters (Core)'
+2022-10-17 22:46:17.522 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5001/Register - - - 422 - application/json;+charset=utf-8 10539.7580ms
+2022-10-17 22:51:27.199 +00:00 [INF] Application is shutting down...

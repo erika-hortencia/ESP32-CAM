@@ -1,0 +1,19 @@
+[mysqld]
+tmpdir = /var/tmp
+binlog_format = mixed
+event_scheduler = ON
+innodb_buffer_pool_size = 512M
+innodb_buffer_pool_chunk_size = 32M
+innodb_flush_log_at_trx_commit = 1
+innodb_log_file_size = 64M
+join_buffer_size = 512K
+table_open_cache = 600
+performance_schema = ON
+read_only = OFF
+max_connections = 1024
+open_files_limit = 1048576
+skip-name-resolve
+
+default-time-zone = "-03:00"
+
+require_secure_transport=OFF

@@ -1,0 +1,8 @@
+{
+  "runtimeOptions": {
+    "additionalProbingPaths": [
+      "/home/matezcp/.dotnet/store/|arch|/|tfm|",
+      "/home/matezcp/.nuget/packages"
+    ]
+  }
+}

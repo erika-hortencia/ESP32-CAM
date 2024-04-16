@@ -1,0 +1,155 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Core</name>
+    </assembly>
+    <members>
+        <member name="T:backend.Common.ApiErrorCode">
+            <summary>
+            Internal error codes used to describe a given problem.
+            </summary>
+        </member>
+        <member name="T:backend.Common.ApiError">
+            <summary>
+            A map of internal problems, description and final http response code.
+            </summary>
+        </member>
+        <member name="F:backend.Common.ApiError._errorList">
+            <summary>
+            Maps internal errors to http response codes.
+            </summary>
+        </member>
+        <member name="P:backend.Common.ApiError.code">
+            <summary>
+            Internal API error code.
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:backend.Common.ApiError.status">
+            <summary>
+            Http status code.
+            </summary>
+        </member>
+        <member name="P:backend.Common.ApiError.message">
+            <summary>
+            Message returned into response body.
+            </summary>
+        </member>
+        <member name="M:backend.Common.ApiError.#ctor(backend.Common.ApiErrorCode,System.Int32,System.String)">
+            <summary>
+            Default class constructor.
+            </summary>
+            <param name="errorCode"></param>
+            <param name="statusCode"></param>
+            <param name="message"></param>
+        </member>
+        <member name="M:backend.Common.ApiError.#ctor(backend.Common.ApiErrorCode)">
+            <summary>
+            Constructor from internal error code.
+            </summary>
+            <param name="errorCode"></param>
+        </member>
+        <member name="T:backend.Common.ExceptionExtensions">
+            <summary>
+            Helper class to get inner original exception trace.
+            </summary>
+        </member>
+        <member name="T:backend.Controllers.IotControllerBase">
+            <summary>
+            Provides common ground for all service controllers.
+            </summary>
+        </member>
+        <member name="F:backend.Controllers.IotControllerBase._logger">
+            <summary>
+            Logger instance for debug tracing.
+            </summary>       
+        </member>
+        <member name="F:backend.Controllers.IotControllerBase._configuration">
+            <summary>
+            Configuration vault.
+            </summary>
+        </member>
+        <member name="F:backend.Controllers.IotControllerBase._mapper">
+            <summary>
+            Dto mapper service.
+            </summary>
+        </member>
+        <member name="M:backend.Controllers.IotControllerBase.#ctor(Microsoft.Extensions.Configuration.IConfiguration,Microsoft.Extensions.Logging.ILogger{backend.Controllers.IotControllerBase},AutoMapper.IMapper)">
+            <summary>
+            Default class contructor. Receives internal services endpoints.
+            </summary>
+            <param name="configuration">Configuration instance from Startup. see AddSingleton help.</param>
+            <param name="logger">Default logger instance.</param>
+            <param name="mapper">Dto mapper resource.</param>        
+        </member>
+        <member name="M:backend.Controllers.IotControllerBase.GetDbConnectionString">
+            <summary>
+            Retrieves database connection string from configuration.
+            </summary>
+            <returns>A database connection string.</returns>
+        </member>
+        <member name="M:backend.Controllers.IotControllerBase.GetDbContext">
+            <summary>
+            Get the default application DB context.
+            </summary>
+            <returns>DB context instance.</returns>
+        </member>
+        <member name="T:backend.Controllers.RegisterController">
+            <summary>
+            The API authentication endpoint.
+            </summary>
+        </member>
+        <member name="M:backend.Controllers.RegisterController.#ctor(Microsoft.Extensions.Configuration.IConfiguration,Microsoft.Extensions.Logging.ILogger{backend.Controllers.RegisterController},AutoMapper.IMapper)">
+            <summary>
+            Default class constructor
+            </summary>
+            <param name="logger">Logger instance</param>
+        </member>
+        <member name="M:backend.Controllers.RegisterController.GetAllRegisters">
+            <summary>
+            User authentication method.
+            </summary>
+            <remarks>
+            The method returns a valid  JWT token containing valid
+            access credentials to call protected API methods. Currently, the token has an expiration time 
+            of two hours.
+            </remarks>
+            <response code="200">Authentication success</response>
+            <response code="400">Missing login or password or malformed data</response>
+            <response code="401">User credentials are not valid</response>
+            <response code="422">An exception on the backend database was detected</response>
+        </member>
+        <member name="T:backend.Data.IotDbContext">
+            <summary>
+            Database entity model map. 
+            </summary>
+        </member>
+        <member name="M:backend.Data.IotDbContext.#ctor(System.String)">
+            <summary>
+            Default class constructor
+            </summary>
+            <param name="connectionString">Database connection parameters</param>
+        </member>
+        <member name="M:backend.Data.IotDbContext.OnModelCreating(System.Data.Entity.DbModelBuilder)">
+            <summary>
+            Build indirect relationships.
+            </summary>
+            <param name="modelBuilder"></param>
+        </member>
+        <member name="P:backend.Data.IotDbContext.Registers">
+            <summary>
+            Application Register's data set.
+            </summary>
+        </member>
+        <member name="T:backend.Data.Register">
+            <summary>
+            Maps relational table 'registers'.
+            </summary>
+        </member>
+        <member name="T:backend.Dto.RegisterDto">
+            <summary>
+            User data.
+            </summary>
+        </member>
+    </members>
+</doc>
